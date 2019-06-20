@@ -1,24 +1,24 @@
 # Sonoff Homekit
 
-This firmware makes the **Sonoff WIFI Smart Switch** compatible with **Apple Homekit**!
+Ce micrologiciel rend le **Sonoff WIFI Smart Switch** compatible avec **Apple Homekit**!
 
 <img src="https://raw.githubusercontent.com/Gruppio/Sonoff-Homekit/images/images/sonoffonly.png" alt="Sonoff" width="180"/> <img src="https://raw.githubusercontent.com/Gruppio/Sonoff-Homekit/images/images/transparent.png" alt=" " width="20"/><img src="https://raw.githubusercontent.com/Gruppio/Sonoff-Homekit/images/images/homekit.png" alt="Works with Apple Homekit" width="180"/>
 
-### Homekit runs on the Sonoff ! 😳
+### Homekit s'exécute sur le Sonoff ! 😳
 
-Unlike other projects on github, this firmware does NOT require anything else in order to work.
-It is not based on the Tasmota Fw, you don't need HomeBridge running on a Raspberry-Pi or an MQTT server, since HomeKit runs natively are enough a Wi-Fi connection and an Apple Device!
+Contrairement à d'autres projets sur github, ce micrologiciel ne nécessite RIEN d'autre pour fonctionner.
+Il n'est pas basé sur Tasmota Fw, il ne requiert pas Homebridge sur un Raspberry-Pi ou un serveur MQTT , puisque HomeKit ne nécessite qu'une connexion Wi-Fi  et un appareil Apple !
 
-The implementation use Apple provided specifications for developers, so it is a stable and supported software and it will keep working for a long time.
+Cette implementation utilise la spécification Homekit fournie par Apple pour les devellopeurs, donc le projet est stable et va fonctionner encore longtemps.
 
-Now you finally can have a HomeKit devices without spending a lot of money!
+Maintenant vous pouvez avoir des appareils Homekit sans dépenser une fortune !
 
-### Compatible Devices
-This Software is currently tested on: **Sonoff Basic**, **Sonoff Slampher**, **Sonoff S26** (thanks Arjan)
+### Appareils compatibles
+Ce logiciel est actuellement testé sur : **Sonoff Basic**, **Sonoff Slampher**, **Sonoff S26** (merci Arjan)
 
-### Video Demo
+### Vidéo de démonstration
 
-Click on the image for play the video:
+Clickez sur l'image pour jouer la vidéo:
 <br>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=_PLeu4v50h0
 " target="_blank"><img src="http://img.youtube.com/vi/_PLeu4v50h0/0.jpg" 
@@ -26,65 +26,56 @@ alt="Video" width="480" height="270" border="10" /></a>
 
 ---
 
-## New Functionalities
+## Nouvelles fonctionnalités
 
-### Web Page Controller
-For control your Sonoff from a non Apple device just navigate to the Sonoff IP address and a web page will allow you to turn it on or off
+### Interface HTTP
+Pour contrôler votre Sonoff depuis un appareil non Apple, naviguez jusqu'à l'adresse IP du sonoff permettra de l'allumer ou l'éteindre.
 
 ### Rest APIs
-A full set of Rest APIs are available:
+Un ensemble complet d'AIP Rest est disponible:
 * **/on**
 * **/off**
 * **/toggle**
 * **/state**
 
-All the request are in **GET** and are relative to the IP address of the Sonoff.
-In order to turn on the Sonoff at IP 192.168.0.22 you can: `$ curl 192.168.0.22/on`
+Toutes les requètes sont de type **GET** et sont relative à l'adresse IP du Sonoff.
+Afin de démarrer le Sonoff à l'IP 192.168.0.22, on peut exécuter la commande : `$ curl 192.168.0.22/on`
 
-### AutoReconnect after power outage
-A problem with the old firmware was that after a power outage the Sonoff was immediately searching for the stored WIFI connection, but since the router was still powering on the Sonoff was prompting the configuration procedure. Now this problem is fixed, if the Sonoff does not have a WIFI Connection every 10min the Sonoff will restart.
+### Reconnexion automatique après une coupure de courant
+Un problème avec l'ancien micrologiciel était qu'après une coupure de courant, le Sonoff  recherchait automatiquement la connexion WIFI enregistrée, mais puisque le routeur était encore alimenté, the Sonoff demandait la procédure de configuration. Maintenant ce problème est résolu , si le Sonoff n'a pas de connexion WIFI toutes les 10 minutes, le Sonoff redémarrera.
 
-### Selectable PowerOn state
-By default the Sonoff will have a Enabled state at power on, you can change this by selecting "OFF" in the `flash.sh` script
-
----
-
-## Installation Instructions
-
-### Flash the Sonoff
- 1) Unplug your sonoff from the power line _(or you can burn your PC)_
- 2) Connect your Sonoff to a serial adapter @ 3.3v
- 3) Run the `flash.sh` script 
-
-### Add Sonoff to Home app
- 1) Connect your iPhone or iPad to the new wifi network `Sonoff Switch-xxx`
- 2) Wait for the Captive Portal and select your WiFi network
- 3) Insert your WiFi Password
- 4) Open the `Home` app
- 5) Click the `+` symbol
- 6) Click `I don't have the code...`
- 7) Select the Sonoff-xxx Switch 
- 7.1 If the Sonoff-xxx does not appear on top of the page try to press the sonoff button a couple of times and kill the Home App
- 9) Confirm that you want to add the Sonoff
- 10) Insert the Password that is `11111111`
-
-Done! 🎉 
-
-## If you like this project please:
-
-<a href="https://bmc.xyz/l/SonoffHomekit" target="_blank"><img src="https://raw.githubusercontent.com/Gruppio/Sonoff-Homekit/images/images/buymeacoffee.png" alt="Buy Me A Coffee" width="300" ></a>
-
-My supporters will also receive immediately:
-
-* A **Step-by-Step Video Tutorial** that will help you to flash and connect your Sonoff
-* A personal **E-Mail** where you can write to me your Issues
+### État au démarrage sélectionnable
+Par défaut le Sonoff aura un état activé à l'allumage, on peut changer cela en sélectionnant "OFF" dans le script `flash.sh`
 
 ---
+
+## Instructions d'installation
+
+### Flasher le Sonoff
+ 1) Débrancher le sonoff du secteur _(ou vous pouvez griller votre PC)_
+ 2) Connecter le Sonoff à un adaptateur série @ 3.3v
+ 3) Exécuter le script `flash.sh`
+
+### Ajouter le Sonoff à l'application Maison
+ 1) Connectee l'iPhone ou l'iPad au nouveau réseau WIFI  `Sonoff Switch-xxx`
+ 2) Attendre le portail captif et selectionner le réseau WiFi du domicile
+ 3) Entrez votre mot de passe WiFi
+ 4) Ouvrir l'application `Maison`
+ 5) Appuyer sur le symbole `+`
+ 6) Appuyer sur  `Je n'ai pas de code...`
+ 7) Selectionnez l'interrupteur Sonoff-xxx 
+ 7.1 Si le Sonoff-xxx n'apparait pas en haut de la page, essayer d'appuyer le bouton du sonoff une paire de foi et fermer l'application `Maison`
+ 9) `Confirmer que l'on veut ajouter le Sonoff
+ 10) Saisir le mot de passe qui est `11111111`
+
+Fini ! 🎉 
 
 #### Special thanks to:
 @maximkulkin
+@Gruppio
 
-This project would not have existed without:
+Ce projet n'aurait pas existé sans :
+https://github.com/Gruppio/Sonoff-Homekit
 https://github.com/maximkulkin/esp-homekit
 https://github.com/maximkulkin/esp-homekit-demo
 https://github.com/maximkulkin/esp-wifi-config
